@@ -2,10 +2,11 @@ package com.opac.scms;
 
 import javax.sql.DataSource;
 
+import org.jooq.SQLDialect;
 import org.jooq.impl.DataSourceConnectionProvider;
 import org.jooq.impl.DefaultConfiguration;
 import org.jooq.impl.DefaultDSLContext;
-import org.jooq.impl.DefaultExecuteListenerProvider;
+//import org.jooq.impl.DefaultExecuteListenerProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -31,6 +32,8 @@ public DefaultDSLContext dsl() {
 public DefaultConfiguration configuration() {
   DefaultConfiguration jooqConfiguration = new DefaultConfiguration();
   jooqConfiguration.set(connectionProvider());
+  jooqConfiguration.setSQLDialect(SQLDialect.MYSQL);
+  
   //jooqConfiguration
     //.set(new DefaultExecuteListenerProvider(exceptionTransformer()));
 

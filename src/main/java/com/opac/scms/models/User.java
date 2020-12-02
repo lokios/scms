@@ -9,11 +9,11 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name="user_name")
+    @Column(name="username")
     private String userName;
     private String password;
     private int active;
-    private String roles;
+    //private String roles;
 
     public int getId() {
         return id;
@@ -53,6 +53,6 @@ public class User {
     }
 
     public void setRoles(String roles) {
-        this.roles = roles;
+        //this.roles = roles;
     }
 }
