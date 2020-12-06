@@ -23,9 +23,12 @@ import com.opac.scms.tables.NotificationDeviceUsers;
 import com.opac.scms.tables.Notifications;
 import com.opac.scms.tables.PasswordResets;
 import com.opac.scms.tables.Payments;
+import com.opac.scms.tables.Roles;
 import com.opac.scms.tables.Settings;
+import com.opac.scms.tables.UserRole;
 import com.opac.scms.tables.Users;
 import com.opac.scms.tables.UsersCopy;
+import com.opac.scms.tables.VerifyAccount;
 
 
 /**
@@ -130,9 +133,19 @@ public class Tables {
     public static final Payments PAYMENTS = Payments.PAYMENTS;
 
     /**
+     * The table <code>applet.roles</code>.
+     */
+    public static final Roles ROLES = Roles.ROLES;
+
+    /**
      * The table <code>applet.settings</code>.
      */
     public static final Settings SETTINGS = Settings.SETTINGS;
+
+    /**
+     * The table <code>applet.user_role</code>.
+     */
+    public static final UserRole USER_ROLE = UserRole.USER_ROLE;
 
     /**
      * The table <code>applet.users</code>.
@@ -143,4 +156,9 @@ public class Tables {
      * The table <code>applet.users_copy</code>.
      */
     public static final UsersCopy USERS_COPY = UsersCopy.USERS_COPY;
+
+    /**
+     * The table <code>applet.verify_account</code>.
+     */
+    public static final VerifyAccount VERIFY_ACCOUNT = VerifyAccount.VERIFY_ACCOUNT;
 }

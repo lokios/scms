@@ -18,8 +18,11 @@ import com.opac.scms.tables.Migrations;
 import com.opac.scms.tables.NotificationDeviceUsers;
 import com.opac.scms.tables.Notifications;
 import com.opac.scms.tables.Payments;
+import com.opac.scms.tables.Roles;
 import com.opac.scms.tables.Settings;
+import com.opac.scms.tables.UserRole;
 import com.opac.scms.tables.Users;
+import com.opac.scms.tables.VerifyAccount;
 import com.opac.scms.tables.records.BackendUsersRecord;
 import com.opac.scms.tables.records.ChatsRecord;
 import com.opac.scms.tables.records.ComplaintReasonsRecord;
@@ -34,8 +37,11 @@ import com.opac.scms.tables.records.MigrationsRecord;
 import com.opac.scms.tables.records.NotificationDeviceUsersRecord;
 import com.opac.scms.tables.records.NotificationsRecord;
 import com.opac.scms.tables.records.PaymentsRecord;
+import com.opac.scms.tables.records.RolesRecord;
 import com.opac.scms.tables.records.SettingsRecord;
+import com.opac.scms.tables.records.UserRoleRecord;
 import com.opac.scms.tables.records.UsersRecord;
+import com.opac.scms.tables.records.VerifyAccountRecord;
 
 import org.jooq.ForeignKey;
 import org.jooq.TableField;
@@ -68,8 +74,12 @@ public class Keys {
     public static final UniqueKey<NotificationDeviceUsersRecord> KEY_NOTIFICATION_DEVICE_USERS_PRIMARY = Internal.createUniqueKey(NotificationDeviceUsers.NOTIFICATION_DEVICE_USERS, DSL.name("KEY_notification_device_users_PRIMARY"), new TableField[] { NotificationDeviceUsers.NOTIFICATION_DEVICE_USERS.ID }, true);
     public static final UniqueKey<NotificationsRecord> KEY_NOTIFICATIONS_PRIMARY = Internal.createUniqueKey(Notifications.NOTIFICATIONS, DSL.name("KEY_notifications_PRIMARY"), new TableField[] { Notifications.NOTIFICATIONS.ID }, true);
     public static final UniqueKey<PaymentsRecord> KEY_PAYMENTS_PRIMARY = Internal.createUniqueKey(Payments.PAYMENTS, DSL.name("KEY_payments_PRIMARY"), new TableField[] { Payments.PAYMENTS.ID }, true);
+    public static final UniqueKey<RolesRecord> KEY_ROLES_PRIMARY = Internal.createUniqueKey(Roles.ROLES, DSL.name("KEY_roles_PRIMARY"), new TableField[] { Roles.ROLES.ID }, true);
+    public static final UniqueKey<RolesRecord> KEY_ROLES_UK_OFX66KERUAPI6VYQPV6F2OR37 = Internal.createUniqueKey(Roles.ROLES, DSL.name("KEY_roles_UK_ofx66keruapi6vyqpv6f2or37"), new TableField[] { Roles.ROLES.NAME }, true);
     public static final UniqueKey<SettingsRecord> KEY_SETTINGS_PRIMARY = Internal.createUniqueKey(Settings.SETTINGS, DSL.name("KEY_settings_PRIMARY"), new TableField[] { Settings.SETTINGS.ID }, true);
+    public static final UniqueKey<UserRoleRecord> KEY_USER_ROLE_PRIMARY = Internal.createUniqueKey(UserRole.USER_ROLE, DSL.name("KEY_user_role_PRIMARY"), new TableField[] { UserRole.USER_ROLE.USER_ID, UserRole.USER_ROLE.ROLE_ID }, true);
     public static final UniqueKey<UsersRecord> KEY_USERS_PRIMARY = Internal.createUniqueKey(Users.USERS, DSL.name("KEY_users_PRIMARY"), new TableField[] { Users.USERS.ID }, true);
+    public static final UniqueKey<VerifyAccountRecord> KEY_VERIFY_ACCOUNT_PRIMARY = Internal.createUniqueKey(VerifyAccount.VERIFY_ACCOUNT, DSL.name("KEY_verify_account_PRIMARY"), new TableField[] { VerifyAccount.VERIFY_ACCOUNT.ID }, true);
 
     // -------------------------------------------------------------------------
     // FOREIGN KEY definitions
@@ -82,4 +92,5 @@ public class Keys {
     public static final ForeignKey<ListingRecord, ListingCategoriesRecord> LISTING_IBFK_3 = Internal.createForeignKey(Listing.LISTING, DSL.name("listing_ibfk_3"), new TableField[] { Listing.LISTING.LISTING_CATEGORY_ID }, Keys.KEY_LISTING_CATEGORIES_PRIMARY, new TableField[] { ListingCategories.LISTING_CATEGORIES.ID }, true);
     public static final ForeignKey<MessagesRecord, ChatsRecord> MESSAGES_IBFK_1 = Internal.createForeignKey(Messages.MESSAGES, DSL.name("messages_ibfk_1"), new TableField[] { Messages.MESSAGES.CHAT_ID }, Keys.KEY_CHATS_PRIMARY, new TableField[] { Chats.CHATS.ID }, true);
     public static final ForeignKey<PaymentsRecord, UsersRecord> PAYMENTS_IBFK_1 = Internal.createForeignKey(Payments.PAYMENTS, DSL.name("payments_ibfk_1"), new TableField[] { Payments.PAYMENTS.USER_ID }, Keys.KEY_USERS_PRIMARY, new TableField[] { Users.USERS.ID }, true);
+    public static final ForeignKey<UserRoleRecord, RolesRecord> FKT7E7DJP752SQN6W22I6OCQY6Q = Internal.createForeignKey(UserRole.USER_ROLE, DSL.name("FKt7e7djp752sqn6w22i6ocqy6q"), new TableField[] { UserRole.USER_ROLE.ROLE_ID }, Keys.KEY_ROLES_PRIMARY, new TableField[] { Roles.ROLES.ID }, true);
 }

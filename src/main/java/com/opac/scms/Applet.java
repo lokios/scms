@@ -23,9 +23,12 @@ import com.opac.scms.tables.NotificationDeviceUsers;
 import com.opac.scms.tables.Notifications;
 import com.opac.scms.tables.PasswordResets;
 import com.opac.scms.tables.Payments;
+import com.opac.scms.tables.Roles;
 import com.opac.scms.tables.Settings;
+import com.opac.scms.tables.UserRole;
 import com.opac.scms.tables.Users;
 import com.opac.scms.tables.UsersCopy;
+import com.opac.scms.tables.VerifyAccount;
 
 import java.util.Arrays;
 import java.util.List;
@@ -144,9 +147,19 @@ public class Applet extends SchemaImpl {
     public final Payments PAYMENTS = Payments.PAYMENTS;
 
     /**
+     * The table <code>applet.roles</code>.
+     */
+    public final Roles ROLES = Roles.ROLES;
+
+    /**
      * The table <code>applet.settings</code>.
      */
     public final Settings SETTINGS = Settings.SETTINGS;
+
+    /**
+     * The table <code>applet.user_role</code>.
+     */
+    public final UserRole USER_ROLE = UserRole.USER_ROLE;
 
     /**
      * The table <code>applet.users</code>.
@@ -157,6 +170,11 @@ public class Applet extends SchemaImpl {
      * The table <code>applet.users_copy</code>.
      */
     public final UsersCopy USERS_COPY = UsersCopy.USERS_COPY;
+
+    /**
+     * The table <code>applet.verify_account</code>.
+     */
+    public final VerifyAccount VERIFY_ACCOUNT = VerifyAccount.VERIFY_ACCOUNT;
 
     /**
      * No further instances allowed
@@ -193,8 +211,11 @@ public class Applet extends SchemaImpl {
             Notifications.NOTIFICATIONS,
             PasswordResets.PASSWORD_RESETS,
             Payments.PAYMENTS,
+            Roles.ROLES,
             Settings.SETTINGS,
+            UserRole.USER_ROLE,
             Users.USERS,
-            UsersCopy.USERS_COPY);
+            UsersCopy.USERS_COPY,
+            VerifyAccount.VERIFY_ACCOUNT);
     }
 }
