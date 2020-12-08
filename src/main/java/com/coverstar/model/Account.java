@@ -51,6 +51,10 @@ public class Account implements Serializable{
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "account", cascade = CascadeType.ALL)
 	private Set<VerifyAccount> verifyAccounts;
 
+	@JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "account", cascade = CascadeType.ALL)
+	private Set<Listing> listings;
+
 	public Long getId() {
 		return id;
 	}

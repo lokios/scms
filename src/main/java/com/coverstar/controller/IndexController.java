@@ -38,6 +38,14 @@ public class IndexController {
 	public String login(Model model, HttpServletRequest request) {
 		return "login";
 	}
+
+
+	@GetMapping
+	public String create_listing(Model model, Pageable pageable) {
+		//model.addAttribute("page", accountRepository.findAll(pageable));
+		return "create_listing";
+	}
+	
 	
 	
 }
